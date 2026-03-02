@@ -1,9 +1,29 @@
 {
-  "PacketLog": {
-    "src_ip": "string",
-    "dst_ip": "string",
-    "protocol": "TCP | UDP",
-    "length": "number",
-    "timestamp": "string (ISO-8601)"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PacketLog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "src_ip",
+    "dst_ip",
+    "protocol",
+    "src_port",
+    "dst_port",
+    "risk_score",
+    "length",
+    "timestamp"
+  ],
+  "properties": {
+    "src_ip": { "type": "string" },
+    "dst_ip": { "type": "string" },
+    "protocol": { "type": "string", "enum": ["TCP", "UDP"] },
+    "src_port": { "type": "number" },
+    "dst_port": { "type": "number" },
+    "risk_score": { "type": "number" },
+    "length": { "type": "number" },
+    "timestamp": { "type": "string" },
+    "site": { "type": "string" },
+    "segment": { "type": "string" },
+    "event_id": { "type": "string" }
   }
 }
